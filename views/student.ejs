@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<style>
+  body { background-color: #487eb0;}
+</style>
+
+
+
+<div class="signup-form">
+  <h1>Create</h1>
+  <form action="/create" method="post">
+   
+    <input type="text" name="firstname" required autocomplete="off" class="txtbtn" placeholder="FirstName">
+    <input type="text" name="lastname" required autocomplete="off" class="txtbtn" placeholder="LastName">
+    <input type="text" name="rollno" required autocomplete="off" class="txtbtn" placeholder="Roll-Number">
+    <input type="text" name="dept" required autocomplete="off" class="txtbtn" placeholder="Department">
+    <button type="submit" class="signup-b">Add</button>
+
+  </form>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<%- include('partials/footer') %>

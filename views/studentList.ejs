@@ -1,0 +1,45 @@
+<%- include('partials/header') %>
+
+<style>
+  body { background-color: #487eb0;}
+</style>
+
+
+
+
+
+          
+  <form action="/" method="post">
+
+    <% var i=0; listStudent.forEach(function(cell){  %>
+      <div class="invitations">
+
+        <div class="item">
+          <br>
+          <p class="title"> <%= cell.Firstname %>   <%= cell.Lastname %></p>
+          <p class="title"> <%= cell.RollNo %> - <%=cell.Department%> </p>
+     
+        
+         </div>
+           
+         <div class="accept">
+           <button type="submit" class="signup-b" name="edit" value=<%= cell.RollNo %>>Edit</button>
+         </div>
+  
+         <div class="reject">
+          <button type="submit" class="signup-b" name="delete" value=<%= cell.RollNo %>>Delete</button>
+          </div>
+  
+      </div> 
+    
+  
+      
+    <% i++;  }) %>
+
+  </form>
+
+ 
+        
+
+
+  <%- include('partials/footer') %>

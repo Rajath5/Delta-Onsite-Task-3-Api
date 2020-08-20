@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<style>
+  body { background-color: #487eb0;}
+</style>
+
+
+
+<div class="signup-form">
+  <h1>Update</h1>
+  <form action="/edit" method="post">
+   
+    <input type="text" name="firstname" value=<%=editStudent.Firstname %>  required autocomplete="off" class="txtbtn" placeholder= <%=editStudent.Firstname %> >
+    <input type="text" name="lastname" value=<%=editStudent.Lastname %> required autocomplete="off" class="txtbtn" placeholder=<%=editStudent.Lastname %>>
+    <input type="text" name="rollnumber" value=<%= editStudent.RollNo %> required autocomplete="off" class="txtbtn" placeholder=<%=editStudent.RollNo %>  >
+    <input type="text" name="dept" value=<%=editStudent.Department %> required autocomplete="off" class="txtbtn" placeholder=<%=editStudent.Department %>>
+    <input type="hidden" name="rollno" value=<%= editStudent.RollNo %> required autocomplete="off" class="txtbtn" placeholder=<%=editStudent.RollNo %>  >
+    <button type="submit" class="signup-b">Edit</button>
+
+  </form>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<%- include('partials/footer') %>
