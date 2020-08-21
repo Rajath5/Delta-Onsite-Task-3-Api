@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Documents</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/autocomplete.css">
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <ul class="tab-group">
+    <li class="tab active"><a href="/">Student List</a></li>
+    <li class="tab active"> <a href="/create">Create</a> </li>
+</ul>
+
+
+<style>
+  body { background-color: #487eb0;}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<div class="signup-form">
+  <h1>Search</h1>
+
+
+  <form action="/search" method="post" autocomplete="off">
+    <div class="autocomplete" id="myDiv">
+        <input id = "myInput" type="text" name="rollno" required  class="txtbtn" placeholder="Enter the Roll Number" name="myInput"></input>
+   
+    </div>
+    <input name="val" type="hidden" id="val"></input>
+    <button type="submit" class="signup-b" id="button">Submit</button>
+   
+
+  </form>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+    <ul class="footer-grp">
+        <li class="blkenvlpe">2020@NIT_TRICHY</li>
+    </ul>
+  
+</div>
+
+
+<% var i=0; studentlist.forEach(function(cell){ var g = i+"p" %>
+    <p id= <%= g %> style="display:none"> <%= cell.RollNo %> </p>
+  <% i++;  })  %>
+
+  <p id= "length" style="display:none"> <%= studentlist.length %> </p> 
+
+
+</div>
+
+<script>
+
+
+
+
+
+var list = [];
+var arr = [];
+
+var tempArr =[];
+var length = document.getElementById("length").innerText;
+console.log(length);
+for(var i =0;i<length;i++)
+{
+    var studentlist = document.getElementById(i+"p").innerText;
+    list.push(studentlist);
+
+}
+
+    
+console.log(list);
+
+
+
+
+var name_input = document.getElementById('myInput');
+    name_input.addEventListener("keyup", 
+    
+  function(event){
+      // console.log(event.target.value);
+    
+         for(j=0;j<list.length;j++)
+         {  
+        
+           if(list[j].substr(1,event.target.value.length)==event.target.value)
+           {
+            //  console.log(list[j]);
+             d = document.getElementById('myDiv');
+             b = document.createElement("DIV");
+             b.className = "auto ";
+             b.id = "cell"+j
+             b.innerHTML = list[j];
+             var x=0;
+            for(i=0;i<d.children.length;i++)
+            { 
+              a = d.children[i].innerHTML;
+              if(a==b.innerHTML)
+              {
+                x++;
+              }
+            }
+            if(x==0)
+            {
+              d.appendChild(b);
+            }
+         
+          }
+        }
+        d = document.getElementById('myDiv')
+        for(var k=1;k<d.children.length;k++)
+        {
+          a = d.children[k].innerHTML;
+          if(a.substr(1,event.target.value.length)!=event.target.value)
+          {
+            // d.parentNode.removeChild(d.children[k]);
+              var lists=document.getElementById(d.children[k].id);
+              var parentDiv = lists.parentNode;
+              parentDiv.removeChild(lists);
+          }
+         
+
+          d.children[k].addEventListener("mousedown",function(e){
+            d.children[0].value = e.target.innerHTML;
+            document.getElementById('val').value=e.target.innerHTML;
+          })
+      
+        }
+      
+   })
+
+</script>
+
+</body>
+
+</html>
+

@@ -36,12 +36,45 @@ app.get("/",function(req,res){
     });
 });
 
+app.get("/search",function(req,res){
+    Student.find(function(err,foundStudents){
+        if(err)
+        {
+          res.send(err)
+        }
+        else
+        {
+            res.render("search",{studentlist: foundStudents});
+            
+        }
+    
+        });
+    
+})
 
 
 
 
 
 
+app.post("/search",function(req,res){
+
+string = req.body.val.substr(1,req.body.val.length-2);
+  Student.findOne({RollNo: string},function(err,foundStudent){
+    if(err)
+    {
+      res.send(err);
+    }
+    else
+    {
+      console.log(foundStudent);
+      res.render("studentPage",{cell:foundStudent})
+    }
+})
+
+
+
+})
 
 
 
@@ -138,7 +171,6 @@ app.listen(3000,function(){
 
 
 
-//Auto-Complete
 
 
 
